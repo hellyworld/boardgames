@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     # my apps
     'main',
     'tictactoe',
+    'user',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'boardgames.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,3 +105,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+LOGIN_URL = 'boardgames_login'
+LOGOUT_URL = 'boardgames_logout'
+LOGIN_REDIRECT_URL = 'user_home'
